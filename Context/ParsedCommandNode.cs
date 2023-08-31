@@ -1,5 +1,5 @@
-﻿using System;
-using Brigadier.Unity.Tree;
+﻿using Brigadier.Unity.Tree;
+using System;
 using HashCode = Brigadier.Unity.Util.HashCode;
 
 namespace Brigadier.Unity.Context

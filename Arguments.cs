@@ -1,6 +1,6 @@
-﻿using System;
-using Brigadier.Unity.ArgumentTypes;
+﻿using Brigadier.Unity.ArgumentTypes;
 using Brigadier.Unity.Context;
+using System;
 
 namespace Brigadier.Unity
 {

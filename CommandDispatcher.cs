@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Brigadier.Unity.Builder;
+﻿using Brigadier.Unity.Builder;
 using Brigadier.Unity.Context;
 using Brigadier.Unity.Exceptions;
 using Brigadier.Unity.Suggestion;
 using Brigadier.Unity.Tree;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Brigadier.Unity
 {
@@ -17,12 +17,12 @@ namespace Brigadier.Unity
         ///  The string required to separate individual arguments in an input string
         /// </summary>
         /// <see cref="ArgumentSeparatorChar"/>
-        public string ArgumentSeparator = " ";
+        public const string ARGUMENT_SEPARATOR = " ";
 
         /// <summary>
         ///  The char required to separate individual arguments in an input string
         /// </summary>
-        /// <see cref="ArgumentSeparator"/>
+        /// <see cref="ARGUMENT_SEPARATOR"/>
         public char ArgumentSeparatorChar = ' ';
 
         private const string UsageOptionalOpen = "[";
@@ -112,7 +112,7 @@ namespace Brigadier.Unity
         /// will be notified of the result and success of the command. You can use that method to gather more meaningful
         /// results than this method will return, especially when a command forks.</para>
         /// 
-        ///  @see Parse(String, Object)
+        ///  @see Parse(string, Object)
         ///  @see Parse(StringReader, Object)
         ///  @see Execute(ParseResults{TSource})
         ///  @see Execute(StringReader, Object)
@@ -147,10 +147,10 @@ namespace Brigadier.Unity
         /// will be notified of the result and success of the command. You can use that method to gather more meaningful
         /// results than this method will return, especially when a command forks.</para>
         /// 
-        ///  @see Parse(String, Object)
+        ///  @see Parse(string, Object)
         ///  @see Parse(StringReader, Object)
         ///  @see Execute(ParseResults{TSource})
-        ///  @see Execute(String, Object)
+        ///  @see Execute(string, Object)
         /// </summary> 
         /// <param name="input"> a command string to parse &amp; execute</param>
         /// <param name="source"> a custom "source" object, usually representing the originator of this command</param>
@@ -180,9 +180,9 @@ namespace Brigadier.Unity
         /// will be notified of the result and success of the command. You can use that method to gather more meaningful
         /// results than this method will return, especially when a command forks.</para>
         /// 
-        ///  @see Parse(String, Object)
+        ///  @see Parse(string, Object)
         ///  @see Parse(StringReader, Object)
-        ///  @see Execute(String, Object)
+        ///  @see Execute(string, Object)
         ///  @see Execute(StringReader, Object)
         /// </summary>
         /// <exception cref="CommandSyntaxException" />
@@ -304,13 +304,13 @@ namespace Brigadier.Unity
         /// most expensive step, and this allows you to essentially "precompile" a command if it will be ran often.</para>
         /// 
         /// <para>If the command passes through a node that is <see cref='CommandNode.IsFork'/> then the resulting context will be marked as 'forked'.
-        /// Forked contexts may contain child contexts, which may be modified by the <see cref='RedirectModifier'/> attached to the fork.</para>
+        /// Forked contexts may contain child contexts, which may be modified by the <see cref='RedirectModifier{TSource}'/> attached to the fork.</para>
         /// 
-        /// <para>Parsing a command can never fail, you will always be provided with a new <see cref='ParseResults'/>.
+        /// <para>Parsing a command can never fail, you will always be provided with a new <see cref='ParseResults{TSource}'/>.
         /// However, that does not mean that it will always parse into a valid command. You should inspect the returned results
-        /// to check for validity. If its <see cref='ParseResults.Reader()'/> <see cref='StringReader.canRead()'/> then it did not finish
+        /// to check for validity. If its <see cref='ParseResults.Reader'/> <see cref='StringReader.CanRead'/> then it did not finish
         /// parsing successfully. You can use that position as an indicator to the user where the command stopped being valid.
-        /// You may inspect <see cref='ParseResults.Exceptions()'/> if you know the parse failed, as it will explain why it could
+        /// You may inspect <see cref='ParseResults.Exceptions'/> if you know the parse failed, as it will explain why it could
         /// not find any valid commands. It may contain multiple exceptions, one for each "potential node" that it could have visited,
         /// explaining why it did not go down that node.</para>
         /// 
@@ -322,7 +322,7 @@ namespace Brigadier.Unity
         /// <returns>the result of parsing this command</returns>
         ///  @see Parse(StringReader, Object)
         ///  @see Execute(ParseResults{TSource})
-        ///  @see Execute(String, Object)
+        ///  @see Execute(string, Object)
         /// </summary>
         public ParseResults<TSource> Parse(string command, TSource source)
         {
@@ -352,9 +352,9 @@ namespace Brigadier.Unity
         /// <param name="command"> a command string to parse</param>
         /// <param name="source"> a custom "source" object, usually representing the originator of this command</param>
         /// <returns>the result of parsing this command</returns>
-        ///  @see Parse(String, Object)
+        ///  @see Parse(string, Object)
         ///  @see Execute(ParseResults{TSource})
-        ///  @see Execute(String, Object)
+        ///  @see Execute(string, Object)
         /// </summary>
         public ParseResults<TSource> Parse(StringReader command, TSource source)
         {
@@ -525,13 +525,13 @@ namespace Brigadier.Unity
             if (node.Redirect != null)
             {
                 var redirect = node.Redirect == _root ? "..." : "-> " + node.Redirect.UsageText;
-                result.Add(prefix.Length == 0 ? node.UsageText + ArgumentSeparator + redirect : prefix + ArgumentSeparator + redirect);
+                result.Add(prefix.Length == 0 ? node.UsageText + ARGUMENT_SEPARATOR + redirect : prefix + ARGUMENT_SEPARATOR + redirect);
             }
             else if (node.Children.Count > 0)
             {
                 foreach (var child in node.Children)
                 {
-                    GetAllUsage(child, source, result, prefix.Length == 0 ? child.UsageText : prefix + ArgumentSeparator + child.UsageText, restricted);
+                    GetAllUsage(child, source, result, prefix.Length == 0 ? child.UsageText : prefix + ARGUMENT_SEPARATOR + child.UsageText, restricted);
                 }
             }
         }
@@ -593,7 +593,7 @@ namespace Brigadier.Unity
             if (node.Redirect != null)
             {
                 var redirect = node.Redirect == _root ? "..." : "-> " + node.Redirect.UsageText;
-                return self + ArgumentSeparator + redirect;
+                return self + ARGUMENT_SEPARATOR + redirect;
             }
 
             var children = node.Children.Where(c => c.CanUse(source)).ToList();
@@ -602,7 +602,7 @@ namespace Brigadier.Unity
                 var usage = GetSmartUsage(children.Single(), source, childOptional, childOptional);
                 if (usage != null)
                 {
-                    return self + ArgumentSeparator + usage;
+                    return self + ARGUMENT_SEPARATOR + usage;
                 }
             }
             else if (children.Count > 1)
@@ -620,7 +620,7 @@ namespace Brigadier.Unity
                 if (childUsage.Count == 1)
                 {
                     var usage = childUsage.Single();
-                    return self + ArgumentSeparator + (childOptional ? UsageOptionalOpen + usage + UsageOptionalClose : usage);
+                    return self + ARGUMENT_SEPARATOR + (childOptional ? UsageOptionalOpen + usage + UsageOptionalClose : usage);
                 }
                 else if (childUsage.Count > 1)
                 {
@@ -640,7 +640,7 @@ namespace Brigadier.Unity
                     if (count > 0)
                     {
                         builder.Append(close);
-                        return self + ArgumentSeparator + builder;
+                        return self + ARGUMENT_SEPARATOR + builder;
                     }
                 }
             }
@@ -703,16 +703,13 @@ namespace Brigadier.Unity
         /// <summary>
         /// Gets the root of this command tree.
         /// 
-        /// <para>This is often useful as a target of a <see cref='com.mojang.brigadier.builder.ArgumentBuilder#redirect(CommandNode)'/>,
-        /// <see cref='#getAllUsage(CommandNode, Object, bool)'/> or <see cref='#getSmartUsage(CommandNode, Object)'/>.
-        /// You may also use it to clone the command tree via <see cref='#CommandDispatcher(RootCommandNode)'/>.</para>
+        /// <para>This is often useful as a target of a <see cref='ArgumentBuilder.Redirect(CommandNode{TSource})'/>,
+        /// <see cref='GetAllUsage(CommandNode{TSource}, TSource, bool)'/> or <see cref='GetSmartUsage(CommandNode{TSource}, TSource)'/>.
+        /// You may also use it to clone the command tree via <see cref='CommandDispatcher(RootCommandNode)'/>.</para>
         /// 
-        /// <returns>root of the command tree</returns>
         /// </summary>
-        public RootCommandNode<TSource> GetRoot()
-        {
-            return _root;
-        }
+        /// <returns>root of the command tree</returns>
+        public RootCommandNode<TSource> Root => _root;
 
         /// <summary>
         ///  Finds a valid path to a given node on the command tree.
@@ -756,10 +753,10 @@ namespace Brigadier.Unity
         /// <summary>
         ///  Finds a node by its path
         /// 
-        /// <para>Paths may be generated with <see cref='#getPath(CommandNode)'/>, and are guaranteed (for the same tree, and the
+        /// <para>Paths may be generated with <see cref='GetPath(CommandNode{TSource})'/>, and are guaranteed (for the same tree, and the
         ///  same version of this library) to always produce the same valid node by this method.</para>
         /// 
-        /// <para>If a node could not be found at the specified path, then <code>null</code> will be returned.</para>
+        /// <para>If a node could not be found at the specified path, then <see cref="null"/> will be returned.</para>
         /// 
         /// <param name="path"> a generated path to a node</param>
         /// <returns>the node at the given path, or null if not found</returns>

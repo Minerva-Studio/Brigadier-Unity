@@ -2,5 +2,5 @@
 
 namespace Brigadier.Unity
 {
-	public delegate void ResultConsumer<TSource>(CommandContext<TSource> context, bool success, int result);
+    public delegate void ResultConsumer<TSource>(CommandContext<TSource> context, bool success, int result);
 }

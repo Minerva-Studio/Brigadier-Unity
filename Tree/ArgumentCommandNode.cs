@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Brigadier.Unity.ArgumentTypes;
+﻿using Brigadier.Unity.ArgumentTypes;
 using Brigadier.Unity.Builder;
 using Brigadier.Unity.Context;
 using Brigadier.Unity.Exceptions;
 using Brigadier.Unity.Suggestion;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using HashCode = Brigadier.Unity.Util.HashCode;
 
 namespace Brigadier.Unity.Tree

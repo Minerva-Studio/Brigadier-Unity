@@ -1,7 +1,7 @@
+using Brigadier.Unity.Tree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Brigadier.Unity.Tree;
 using HashCode = Brigadier.Unity.Util.HashCode;
 
 namespace Brigadier.Unity.Context
