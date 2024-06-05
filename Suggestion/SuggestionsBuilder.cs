@@ -71,6 +71,18 @@ namespace Brigadier.Unity.Suggestion
             return this;
         }
 
+        public SuggestionsBuilder Suggest(float value)
+        {
+            _result.Add(new FloatSuggestion(StringRange.Between(Start, Input.Length), value));
+            return this;
+        }
+
+        public SuggestionsBuilder Suggest(float value, IMessage tooltip)
+        {
+            _result.Add(new FloatSuggestion(StringRange.Between(Start, Input.Length), value, tooltip));
+            return this;
+        }
+
         public SuggestionsBuilder Add(SuggestionsBuilder other)
         {
             _result.AddRange(other._result);
