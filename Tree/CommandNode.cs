@@ -1,13 +1,13 @@
-﻿using Brigadier.Unity.Builder;
-using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
-using Brigadier.Unity.Suggestion;
+﻿using Brigadier.Builder;
+using Brigadier.Context;
+using Brigadier.Exceptions;
+using Brigadier.Suggestion;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Brigadier.Unity.Tree
+namespace Brigadier.Tree
 {
     public abstract class CommandNode<TSource> : IComparable<CommandNode<TSource>>, IEnumerable<CommandNode<TSource>>
     {

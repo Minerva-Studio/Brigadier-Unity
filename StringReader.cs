@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Exceptions;
+﻿using Brigadier.Exceptions;
 using System;
 using System.Text;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public class StringReader : IStringReader
     {
@@ -32,10 +32,14 @@ namespace Brigadier.Unity
         public int TotalLength => String.Length;
 
 
-        public string Read => String.Substring(0, Cursor);
+        public string Read => String[..Cursor];
+
+        public ReadOnlySpan<char> ReadSpan => String.AsSpan(0, Cursor);
 
 
-        public string Remaining => String.Substring(Cursor);
+        public string Remaining => String[Cursor..];
+
+        public ReadOnlySpan<char> RemainingSpan => String.AsSpan(Cursor);
 
 
         public bool CanRead(int length) => Cursor + length <= String.Length;
@@ -92,7 +96,7 @@ namespace Brigadier.Unity
                 Skip();
             }
 
-            var number = String.Substring(start, Cursor - start);
+            var number = String.AsSpan(start, Cursor - start);
             if (number.Length == 0)
             {
                 throw CommandSyntaxException.BuiltInExceptions.ReaderExpectedInt().CreateWithContext(this);
@@ -105,7 +109,7 @@ namespace Brigadier.Unity
             catch (FormatException)
             {
                 Cursor = start;
-                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidInt().CreateWithContext(this, number);
+                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidInt().CreateWithContext(this, number.ToString());
             }
         }
 
@@ -118,7 +122,7 @@ namespace Brigadier.Unity
                 Skip();
             }
 
-            var number = String.Substring(start, Cursor - start);
+            var number = String.AsSpan(start, Cursor - start);
             if (number.Length == 0)
             {
                 throw CommandSyntaxException.BuiltInExceptions.ReaderExpectedLong().CreateWithContext(this);
@@ -131,7 +135,7 @@ namespace Brigadier.Unity
             catch (FormatException)
             {
                 Cursor = start;
-                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidLong().CreateWithContext(this, number);
+                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidLong().CreateWithContext(this, number.ToString());
             }
         }
 
@@ -144,7 +148,7 @@ namespace Brigadier.Unity
                 Skip();
             }
 
-            var number = String.Substring(start, Cursor - start);
+            var number = String.AsSpan(start, Cursor - start);
             if (number.Length == 0)
             {
                 throw CommandSyntaxException.BuiltInExceptions.ReaderExpectedDouble().CreateWithContext(this);
@@ -157,7 +161,7 @@ namespace Brigadier.Unity
             catch (FormatException)
             {
                 Cursor = start;
-                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidDouble().CreateWithContext(this, number);
+                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidDouble().CreateWithContext(this, number.ToString());
             }
         }
 
@@ -170,7 +174,7 @@ namespace Brigadier.Unity
                 Skip();
             }
 
-            var number = String.Substring(start, Cursor - start);
+            var number = String.AsSpan(start, Cursor - start);
             if (number.Length == 0)
             {
                 throw CommandSyntaxException.BuiltInExceptions.ReaderExpectedFloat().CreateWithContext(this);
@@ -183,7 +187,7 @@ namespace Brigadier.Unity
             catch (FormatException)
             {
                 Cursor = start;
-                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidFloat().CreateWithContext(this, number);
+                throw CommandSyntaxException.BuiltInExceptions.ReaderInvalidFloat().CreateWithContext(this, number.ToString());
             }
         }
 
@@ -204,7 +208,7 @@ namespace Brigadier.Unity
                 Skip();
             }
 
-            return String.Substring(start, Cursor - start);
+            return String[start..Cursor];
         }
 
         /// <exception cref="CommandSyntaxException" />

@@ -1,6 +1,6 @@
-﻿using Brigadier.Unity.Tree;
+﻿using Brigadier.Tree;
 
-namespace Brigadier.Unity.Context
+namespace Brigadier.Context
 {
     public class SuggestionContext<TSource>
     {

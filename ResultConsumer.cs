@@ -1,6 +1,6 @@
-﻿using Brigadier.Unity.Context;
+﻿using Brigadier.Context;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public delegate void ResultConsumer<TSource>(CommandContext<TSource> context, bool success, int result);
 }

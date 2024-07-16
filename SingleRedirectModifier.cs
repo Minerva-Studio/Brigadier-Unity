@@ -1,7 +1,7 @@
-﻿using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
+﻿using Brigadier.Context;
+using Brigadier.Exceptions;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     ///<exception cref="CommandSyntaxException" />
     public delegate TSource SingleRedirectModifier<TSource>(CommandContext<TSource> context);

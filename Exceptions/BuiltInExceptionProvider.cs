@@ -1,4 +1,4 @@
-﻿namespace Brigadier.Unity.Exceptions
+﻿namespace Brigadier.Exceptions
 {
     public interface IBuiltInExceptionProvider
     {

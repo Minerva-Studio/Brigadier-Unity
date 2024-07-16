@@ -1,14 +1,14 @@
-﻿using Brigadier.Unity.ArgumentTypes;
-using Brigadier.Unity.Builder;
-using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
-using Brigadier.Unity.Suggestion;
+﻿using Brigadier.ArgumentTypes;
+using Brigadier.Builder;
+using Brigadier.Context;
+using Brigadier.Exceptions;
+using Brigadier.Suggestion;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Tree
+namespace Brigadier.Tree
 {
     public abstract class ArgumentCommandNode<TSource> : CommandNode<TSource>
     {

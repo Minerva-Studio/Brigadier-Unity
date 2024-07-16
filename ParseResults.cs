@@ -1,9 +1,9 @@
-﻿using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
-using Brigadier.Unity.Tree;
+﻿using Brigadier.Context;
+using Brigadier.Exceptions;
+using Brigadier.Tree;
 using System.Collections.Generic;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public class ParseResults<TSource>
     {

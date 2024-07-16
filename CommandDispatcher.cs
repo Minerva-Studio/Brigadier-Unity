@@ -1,15 +1,15 @@
-﻿using Brigadier.Unity.Builder;
-using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
-using Brigadier.Unity.Suggestion;
-using Brigadier.Unity.Tree;
+﻿using Brigadier.Builder;
+using Brigadier.Context;
+using Brigadier.Exceptions;
+using Brigadier.Suggestion;
+using Brigadier.Tree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public class CommandDispatcher<TSource>
     {

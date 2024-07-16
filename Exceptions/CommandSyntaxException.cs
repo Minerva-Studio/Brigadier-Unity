@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Brigadier.Unity.Exceptions
+namespace Brigadier.Exceptions
 {
     public class CommandSyntaxException : Exception
     {

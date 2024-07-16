@@ -1,4 +1,4 @@
-﻿namespace Brigadier.Unity.Exceptions
+﻿namespace Brigadier.Exceptions
 {
     public class Dynamic3CommandExceptionType : ICommandExceptionType
     {

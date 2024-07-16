@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Context;
+﻿using Brigadier.Context;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Brigadier.Unity.Suggestion
+namespace Brigadier.Suggestion
 {
     public class SuggestionsBuilder
     {

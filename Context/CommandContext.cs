@@ -1,10 +1,10 @@
-using Brigadier.Unity.Tree;
+using Brigadier.Tree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Context
+namespace Brigadier.Context
 {
     public class CommandContext<TSource> : IEquatable<CommandContext<TSource>>
     {

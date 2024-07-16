@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Tree;
+﻿using Brigadier.Tree;
 using System;
 using System.Collections.Generic;
 
-namespace Brigadier.Unity.Context
+namespace Brigadier.Context
 {
     public class CommandContextBuilder<TSource>
     {

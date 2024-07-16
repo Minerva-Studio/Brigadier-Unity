@@ -1,4 +1,4 @@
-﻿namespace Brigadier.Unity.ArgumentTypes
+﻿namespace Brigadier.ArgumentTypes
 {
     public enum StringArgType
     {

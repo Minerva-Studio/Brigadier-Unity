@@ -1,4 +1,6 @@
-﻿namespace Brigadier.Unity
+﻿using System;
+
+namespace Brigadier
 {
     public interface IImmutableStringReader
     {
@@ -12,7 +14,17 @@
 
         string Read { get; }
 
+        /// <summary>
+        /// NOT STANDARD BRIGADIER
+        /// </summary>
+        ReadOnlySpan<char> ReadSpan { get; }
+
         string Remaining { get; }
+
+        /// <summary>
+        /// NOT STANDARD BRIGADIER
+        /// </summary>
+        ReadOnlySpan<char> RemainingSpan { get; }
 
         bool CanRead(int length);
 

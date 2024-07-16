@@ -1,12 +1,12 @@
-﻿using Brigadier.Unity.Builder;
-using Brigadier.Unity.Context;
-using Brigadier.Unity.Suggestion;
+﻿using Brigadier.Builder;
+using Brigadier.Context;
+using Brigadier.Suggestion;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Tree
+namespace Brigadier.Tree
 {
     public class RootCommandNode<TSource> : CommandNode<TSource>, IEquatable<RootCommandNode<TSource>>
     {

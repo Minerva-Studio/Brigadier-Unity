@@ -1,9 +1,9 @@
-﻿using Brigadier.Unity.Context;
-using Brigadier.Unity.Suggestion;
+﻿using Brigadier.Context;
+using Brigadier.Suggestion;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Brigadier.Unity.ArgumentTypes
+namespace Brigadier.ArgumentTypes
 {
     public class BoolArgumentType : ArgumentType<bool>
     {

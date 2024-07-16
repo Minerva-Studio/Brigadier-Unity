@@ -1,10 +1,10 @@
-﻿using Brigadier.Unity.Context;
-using Brigadier.Unity.Exceptions;
-using Brigadier.Unity.Suggestion;
+﻿using Brigadier.Context;
+using Brigadier.Exceptions;
+using Brigadier.Suggestion;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Brigadier.Unity.ArgumentTypes
+namespace Brigadier.ArgumentTypes
 {
     public abstract class ArgumentType<T>
     {

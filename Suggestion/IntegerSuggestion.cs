@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Context;
+﻿using Brigadier.Context;
 using System;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Suggestion
+namespace Brigadier.Suggestion
 {
     public class IntegerSuggestion : Suggestion, IEquatable<IntegerSuggestion>
     {

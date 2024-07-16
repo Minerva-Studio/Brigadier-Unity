@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Tree;
+﻿using Brigadier.Tree;
 using System;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Context
+namespace Brigadier.Context
 {
     public class ParsedCommandNode<TSource> : IEquatable<ParsedCommandNode<TSource>>
     {

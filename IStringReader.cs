@@ -1,4 +1,4 @@
-﻿namespace Brigadier.Unity
+﻿namespace Brigadier
 {
     public interface IStringReader : IImmutableStringReader
     {

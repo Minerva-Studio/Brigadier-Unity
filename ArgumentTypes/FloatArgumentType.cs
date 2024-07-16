@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Exceptions;
+﻿using Brigadier.Exceptions;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Brigadier.Unity.ArgumentTypes
+namespace Brigadier.ArgumentTypes
 {
     public class FloatArgumentType : ArgumentType<float>
     {

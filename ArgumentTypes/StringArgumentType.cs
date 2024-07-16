@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Exceptions;
+﻿using Brigadier.Exceptions;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Brigadier.Unity.ArgumentTypes
+namespace Brigadier.ArgumentTypes
 {
     public class StringArgumentType : ArgumentType<string>
     {

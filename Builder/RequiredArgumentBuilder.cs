@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.ArgumentTypes;
-using Brigadier.Unity.Suggestion;
-using Brigadier.Unity.Tree;
+﻿using Brigadier.ArgumentTypes;
+using Brigadier.Suggestion;
+using Brigadier.Tree;
 
-namespace Brigadier.Unity.Builder
+namespace Brigadier.Builder
 {
     public static class RequiredArgumentBuilderExtensions
     {

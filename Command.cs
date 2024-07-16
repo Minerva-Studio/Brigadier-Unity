@@ -1,6 +1,6 @@
-﻿using Brigadier.Unity.Context;
+﻿using Brigadier.Context;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public delegate int Command<TSource>(CommandContext<TSource> context);
 }

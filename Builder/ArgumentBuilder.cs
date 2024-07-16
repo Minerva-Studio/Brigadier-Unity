@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.Tree;
+﻿using Brigadier.Tree;
 using System;
 using System.Collections.Generic;
 
-namespace Brigadier.Unity.Builder
+namespace Brigadier.Builder
 {
     public interface IArgumentBuilder<TSource, out TNode>
         where TNode : CommandNode<TSource>

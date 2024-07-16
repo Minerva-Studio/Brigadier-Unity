@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Context
+namespace Brigadier.Context
 {
 
     public interface IParsedArgument

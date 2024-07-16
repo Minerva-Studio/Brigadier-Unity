@@ -1,6 +1,6 @@
-﻿using Brigadier.Unity.Tree;
+﻿using Brigadier.Tree;
 
-namespace Brigadier.Unity.Builder
+namespace Brigadier.Builder
 {
     public static class LiteralArgumentBuilderExtensions
     {

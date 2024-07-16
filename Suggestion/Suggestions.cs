@@ -1,11 +1,11 @@
-﻿using Brigadier.Unity.Context;
+﻿using Brigadier.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HashCode = Brigadier.Unity.Util.HashCode;
+using HashCode = Brigadier.Util.HashCode;
 
-namespace Brigadier.Unity.Suggestion
+namespace Brigadier.Suggestion
 {
     public class Suggestions : IEquatable<Suggestions>
     {

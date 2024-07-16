@@ -1,8 +1,8 @@
-﻿using Brigadier.Unity.ArgumentTypes;
-using Brigadier.Unity.Context;
+﻿using Brigadier.ArgumentTypes;
+using Brigadier.Context;
 using System;
 
-namespace Brigadier.Unity
+namespace Brigadier
 {
     public class Arguments
     {

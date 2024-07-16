@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Brigadier.Unity.Util
+namespace Brigadier.Util
 {
     internal struct HashCode
     {
