@@ -1,6 +1,6 @@
 {
     "name": "com.minervastudio.brigadier",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "Brigadier Parser in Unity",
     "description": "Brigadier is a command parser & dispatcher, designed and developed for Minecraft: Java Edition and now freely available for use elsewhere under the MIT license. This package is a port of the original library into C#",
     "unity": "2018.3",
